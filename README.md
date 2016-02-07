@@ -1,6 +1,6 @@
 # Hack the Local Treasure (client)
 
-## Setup
+## How to set up
 
 > npm install -g cordova ionic bower gulp
 >
@@ -8,7 +8,7 @@
 
 replace API KEY for Google Map in www/js/app.js
 
-## Execution
+## How to run
 
 > ionic serve
 
