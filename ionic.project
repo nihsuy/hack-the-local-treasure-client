@@ -1,0 +1,5 @@
+{
+  "name": "Hack the Local Treasure",
+  "app_id": "",
+  "gulpStartupTasks": ["sass", "watch"]
+}

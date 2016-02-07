@@ -1,0 +1,36 @@
+<ion-modal-view>
+  <div class="bar bar-header bar-balanced">
+    <div class="buttons">
+      <button class="button button-clear" ng-click="onCancelSetting()">キャンセル</a>
+    </div>
+    <h1 class="title">設定</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="onOkSetting()">OK</a>
+    </div>
+  </div>   
+
+  <ion-content class="has-header">
+    <div class="list">
+      <div class="item item-divider" ng-show="false">注目エリア表示</div>
+
+      <ion-radio ng-repeat="type in touristTypes" ng-model="status.touristTypeWork" ng-value="type.value" ng-show="false">
+        <div>
+          <div style="margin-bottom: 4px;">{{type.label}}</div>
+          <div style="font-size: 12px; color: #666;">
+            <span ng-if="status.taskMode == commonDataService.type.taskMode.live.value">{{type.description.live}}</span>
+            <span ng-if="status.taskMode == commonDataService.type.taskMode.trend.value">{{type.description.trend}}</span>
+          </div>
+        </div>
+      </ion-radio>
+
+      <div class="item item-divider">スポット表示</div>
+
+      <ion-toggle ng-repeat="type in spotTypes" ng-model="status.spotTypeWork[type.value]">
+        <div style="vertical-align: top;">
+          <img src="{{ type.urlIcon }}" style="width: 24px; height: 24px; margin-right: 5px;" />
+          <span style="position: relative; top: -5px;">{{ type.label }}</span>
+        </div>
+      </ion-toggle>
+    </div>
+  </ion-content>
+</ion-modal-view>

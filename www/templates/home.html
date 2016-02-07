@@ -1,0 +1,55 @@
+<ion-view>
+  <div class="bar bar-header bar-balanced">
+    <div class="buttons">
+    </div>
+    <!--
+    <h1 class="title">{{title}}</h1>
+    -->
+    <h1 class="title">{{titleDemo}}</h1>
+    <div class="buttons">
+      <!--
+      <button class="button button-clear icon" ng-class="{'ion-ios-list-outline': status.viewMode == commonDataService.type.viewMode.map.value, 'ion-ios-location-outline': status.viewMode == commonDataService.type.viewMode.list.value}"  ng-click="onChangeViewMode()"></button>
+      -->
+      <button class="button button-clear icon ion-ios-settings" ng-click="onSelectSettings()"></button>
+    </div>
+  </div>
+
+  <!--
+  <div class="tabs tabs-icon-top">
+    <a class="tab-item" ng-class="{ active: status.taskMode == commonDataService.type.taskMode.live.value }" ng-click="onChangeTaskMode('live')">
+      <i class="icon ion-ios-pulse"></i>
+      {{::commonDataService.type.taskMode.live.label}}
+    </a>
+    <a class="tab-item" ng-class="{ active: status.taskMode == commonDataService.type.taskMode.trend.value }" ng-click="onChangeTaskMode('trend')">
+      <i class="icon ion-ios-pie"></i>
+      {{::commonDataService.type.taskMode.trend.label}}
+    </a>
+  </div>
+  -->
+
+  <!-- <ion-content class="has-header has-tabs" scroll="true"> -->
+  <ion-content class="has-header" scroll="false">
+    <div ng-show="status.viewMode == commonDataService.type.viewMode.map.value" data-tap-disabled="true" style="height: 100%;">
+      <ui-gmap-google-map center="map.center" zoom="map.zoom" options="map.options" events="map.events">
+        <!--
+        <ui-gmap-rectangle ng-repeat="mesh in commonDataService.meshs" bounds="mesh.bounds" fill="'#FFFFFF .5'"></ui-gmap-rectangle>
+        -->
+      </ui-gmap-google-map>
+    </div>
+
+    <div ng-show="status.viewMode == commonDataService.type.viewMode.list.value">
+      <div class="list">
+          <li ng-repeat="spot in spots" class="item">
+            <div>
+              <img src="{{spot.type.urlIcon}}" style="position: relative; width: 24px; height: 24px; top: -4px; margin-right: 5px;" />
+              <span style="display: inline-block;">
+                <div style="margin-bottom: 3px;">{{spot.name}}</div>
+                <div style="font-size: 13px;">{{spot.address}}</div>
+              </span>
+            </div>
+          </li>
+      </ul>
+    </div>
+
+  </ion-content>
+</ion-view>
